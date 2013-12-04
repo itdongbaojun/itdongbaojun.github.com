@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://itdongbaojun.github.io
+title: 董宝君的iOS技术博客
+subtitle: 穷则思变，差则思勤！没有比人更高的山，没有比腿更长的路。
+author: 董宝君
 simple_search: http://google.com/search
 description:
 
@@ -67,10 +67,6 @@ github_user:
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
-
-# Twitter
-twitter_user:
-twitter_tweet_button: true
 
 # Google +1
 google_plus_one: false
