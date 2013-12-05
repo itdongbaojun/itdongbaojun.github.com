@@ -3,7 +3,7 @@ layout: post
 title: "起点iOS技术博客"
 date: 2013-12-04 23:23:08 +0800
 comments: true
-categories: iOS开发专题
+categories: iOS
 ---
 ###新起点
 
