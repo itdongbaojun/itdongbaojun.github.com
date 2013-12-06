@@ -20,6 +20,6 @@ iOS初学者，正在深入学习iOS开发
   
 我的邮箱：<itdongbaojun@gmail.com>  
   
-新浪微博：[@董宝君_iOS](http://weibo.com/u/3026163601/home?topnav=1&wvr=5)  
+新浪微博：[@董宝君_iOS](http://weibo.com/u/3026163601)  
   
 GitHub：[@itdongbaojun](https://github.com/itdongbaojun)
