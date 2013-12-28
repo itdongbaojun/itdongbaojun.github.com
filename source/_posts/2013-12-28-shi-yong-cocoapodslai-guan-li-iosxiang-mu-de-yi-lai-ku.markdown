@@ -17,9 +17,9 @@ categories: iOS开发工具
   
 ### CocoaPods简介
 
-CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPods的[项目源码](https://github.com/CocoaPods/CocoaPods)在Github上管理。该项目开始于2011年8月12日，在这两年多的时间里，它持续保持活跃更新。开发iOS项目不可避免地要使用第三方开源库，CocoaPods的出现使得我们可以节省设置和更新第三方开源库的时间。 
+CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPods的[项目源码](https://github.com/CocoaPods/CocoaPods)在Github上管理。该项目开始于2011年8月12日，在这两年多的时间里，它持续保持活跃更新。开发iOS项目不可避免地要使用第三方开源库，CocoaPods的出现使得我们可以节省设置和更新第三方开源库的时间 
 
-在我们有了CocoaPods这个工具之后，只需要将用到的第三方开源库放到一个名为Podfile的文件中，然后在命令行执行`pod install`命令。CocoaPods就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数。     
+在我们有了CocoaPods这个工具之后，只需要将用到的第三方开源库放到一个名为Podfile的文件中，然后在命令行执行`pod install`命令。CocoaPods就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数     
 
 ### CocoaPods的安装及使用
 
@@ -100,14 +100,14 @@ Integrating client project
 ``` 
 哈哈，看到类似这样的输出就是成功了。你所需要的第三方开源库都下载好了，并且设置好了相应的依赖以及编译参数。在我们以后用的时候一定要记住以下两点： 
 
-**1. 最后一行是一个警告，提醒我们需要注意：从现在开始，需要通过`xxx.xcworkspace`打开的我们的项目。而不是之前我们一直用的`xxx.xcodeproj`。** 
+**1. 最后一行是一个警告，提醒我们需要注意：从现在开始，需要通过`xxx.xcworkspace`打开的我们的项目。而不是之前我们一直用的`xxx.xcodeproj`** 
  
 **2. 当我们每次修改了`Podfile`这个文件后，一定要记得执行命令：`$ pod install`** 
 
 ### 总结
-用CocoaPods给我们的iOS项目添加依赖库真的太方便了，几个命令就搞定了，我个人建议像我一样还不会使用CocoaPods进行项目依赖的初级开发者，尤其是像我这样刚毕业的本科生，这个工具有必要学会，不能被鄙视，更能提高效率。 
+用CocoaPods给我们的iOS项目添加依赖库真的太方便了，几个命令就搞定了，我个人建议像我一样还不会使用CocoaPods进行项目依赖的初级开发者，尤其是像我这样刚毕业的本科生，这个工具有必要学会，不能被鄙视，更能提高效率
 
-有很多iOS大牛早已写了关于cocoaPods的相关教程，我个人又参考各大牛的博客写了一遍，只为能增加使用CocoaPods的熟练度。如有造成侵权行为，请联系本人。
+有很多iOS大牛早已写了关于cocoaPods的相关教程，我个人又参考各大牛的博客写了一遍，只为能增加使用CocoaPods的熟练度。如有造成侵权行为，请联系本人
 
 ### 参考资料 
 [唐巧的技术博客](http://blog.devtang.com/blog/2012/12/02/use-cocoapod-to-manage-ios-lib-dependency/)
