@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS开发工具 | 董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/blog/categories/ioskai-fa-gong-ju/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2013-12-28T22:55:43+08:00</updated>
+  <updated>2013-12-28T23:03:52+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -63,7 +63,7 @@ $ [sudo] gem update cocoapods --pre
 
 <p>如果我们不知道cocoaPods管理的库中，是否有你想要的库，那么你可以通过<code>$ pod search xxx</code>命令进行查找，以下是我用<code>$ pod search sdwebimage</code>查找到的所有可用的库：</p>
 
-<p>```
+<p>```c++
 &ndash;> SDWebImage (3.5.1)
    Asynchronous image downloader with cache support with an UIImageView
    category.
