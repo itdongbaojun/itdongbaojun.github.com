@@ -49,7 +49,7 @@ $ [sudo] gem update cocoapods --pre
 
 如果我们不知道cocoaPods管理的库中，是否有你想要的库，那么你可以通过`$ pod search xxx`命令进行查找，以下是我用`$ pod search sdwebimage`查找到的所有可用的库： 
 
-```
+```c++
 -> SDWebImage (3.5.1)
    Asynchronous image downloader with cache support with an UIImageView
    category.
