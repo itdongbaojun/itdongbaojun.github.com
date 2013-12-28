@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS开发工具 | 董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/blog/categories/ioskai-fa-gong-ju/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2013-12-28T22:15:30+08:00</updated>
+  <updated>2013-12-28T22:55:43+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -40,7 +40,7 @@
 
 <p>安装的方式非常简单，Mac下已经自带了ruby，只要使用ruby的gem命令就可以安装了。打开的Mac的终端，在终端运行下面的命令：</p>
 
-<p><code>
+<p><code>c++
 $ [sudo] gem install cocoapods
 $ pod setup
 </code>
