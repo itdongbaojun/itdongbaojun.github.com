@@ -5,26 +5,22 @@ date: 2013-12-28 17:17:25 +0800
 comments: true
 categories: iOS开发工具
 ---
----
 ![CocoaPods Logo](/images/blogImgs/cocoapods-logo.png)
 
----
 ### 前言
 
 细细算来，我接触iOS已经有*1.5f*年的时间了，虽然其中有差不多一年的时间是在大四经历*自学和实习*的这个阶段。抛去那段时间不算，毕业后在现在的公司工作差不多半年了...    
 
-在经历过的几个项目上基本上每一个都会用到第三方开源库，比如`SDWebImage`、`AFNetworking`、`MBProgressHUD`等。然而，每次把这些第三方库导入到我们的项目中要配置一些选项以及添加第三方库本身依赖的系统框架，这个工作是重复的而且非常没有技术含量。有没有什么工具能替代我们做这些工作呢？
-          
+在经历过的几个项目上基本上每一个都会用到第三方开源库，比如`SDWebImage`、`AFNetworking`、`MBProgressHUD`等。然而，每次把这些第三方库导入到我们的项目中要配置一些选项以及添加第三方库本身依赖的系统框架，这个工作是重复的而且非常没有技术含量。有没有什么工具能替代我们做这些工作呢？         
+
 一直到最近几天才知道，业界早已有了为iOS项目提供依赖管理的工具(*我深深的感觉到我还没入行就先落伍了*)，这个工具就是：[CocoaPods](http://beta.cocoapods.org)。 
- 
----  
+  
 ### CocoaPods简介
 
-CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPods的[项目源码](https://github.com/CocoaPods/CocoaPods)在Github上管理。该项目开始于2011年8月12日，在这两年多的时间里，它持续保持活跃更新。开发iOS项目不可避免地要使用第三方开源库，CocoaPods的出现使得我们可以节省设置和更新第三方开源库的时间。
-   
+CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPods的[项目源码](https://github.com/CocoaPods/CocoaPods)在Github上管理。该项目开始于2011年8月12日，在这两年多的时间里，它持续保持活跃更新。开发iOS项目不可避免地要使用第三方开源库，CocoaPods的出现使得我们可以节省设置和更新第三方开源库的时间。 
+
 在我们有了CocoaPods这个工具之后，只需要将用到的第三方开源库放到一个名为Podfile的文件中，然后在命令行执行`pod install`命令。CocoaPods就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数。     
 
----
 ### CocoaPods的安装及使用
 
 ### 安装
@@ -103,12 +99,11 @@ Integrating client project
 [!] From now on use `CocoaPodsTest.xcworkspace`.
 ``` 
 哈哈，看到类似这样的输出就是成功了。你所需要的第三方开源库都下载好了，并且设置好了相应的依赖以及编译参数。在我们以后用的时候一定要记住以下两点： 
- 
+
 **1. 最后一行是一个警告，提醒我们需要注意：从现在开始，需要通过`xxx.xcworkspace`打开的我们的项目。而不是之前我们一直用的`xxx.xcodeproj`。** 
  
 **2. 当我们每次修改了`Podfile`这个文件后，一定要记得执行命令：`$ pod install`** 
 
----
 ### 总结
 用CocoaPods给我们的iOS项目添加依赖库真的太方便了，几个命令就搞定了，我个人建议像我一样还不会使用CocoaPods进行项目依赖的初级开发者，尤其是像我这样刚毕业的本科生，这个工具有必要学会，不能被鄙视，更能提高效率。 
 
