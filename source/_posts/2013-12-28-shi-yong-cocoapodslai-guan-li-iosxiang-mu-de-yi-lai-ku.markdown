@@ -27,7 +27,7 @@ CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPod
 
 安装的方式非常简单，Mac下已经自带了ruby，只要使用ruby的gem命令就可以安装了。打开的Mac的终端，在终端运行下面的命令： 
 
-```
+```c++
 $ [sudo] gem install cocoapods
 $ pod setup
 ``` 
@@ -101,8 +101,8 @@ Integrating client project
 哈哈，看到类似这样的输出就是成功了。你所需要的第三方开源库都下载好了，并且设置好了相应的依赖以及编译参数。在我们以后用的时候一定要记住以下两点： 
 
 **1. 最后一行是一个警告，提醒我们需要注意：从现在开始，需要通过`xxx.xcworkspace`打开的我们的项目。而不是之前我们一直用的`xxx.xcodeproj`** 
- 
-**2. 当我们每次修改了`Podfile`这个文件后，一定要记得执行命令：`$ pod install`** 
+
+**2. 当我们每次修改了`Podfile`这个文件后，一定要记得执行命令：`$ pod install`，还可以执行`$ pod update`来更新类库** 
 
 ### 总结
 用CocoaPods给我们的iOS项目添加依赖库真的太方便了，几个命令就搞定了，我个人建议像我一样还不会使用CocoaPods进行项目依赖的初级开发者，尤其是像我这样刚毕业的本科生，这个工具有必要学会，不能被鄙视，更能提高效率
@@ -113,3 +113,5 @@ Integrating client project
 [唐巧的技术博客](http://blog.devtang.com/blog/2012/12/02/use-cocoapod-to-manage-ios-lib-dependency/)
  
 [CocoaPods Blog](http://blog.cocoapods.org)
+ 
+[CocoaPods安装和使用教程](http://code4app.com/article/cocoapods-install-usage)
