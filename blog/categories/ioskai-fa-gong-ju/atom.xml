@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS开发工具 | 董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/blog/categories/ioskai-fa-gong-ju/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2013-12-28T23:03:52+08:00</updated>
+  <updated>2013-12-28T23:10:10+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -32,7 +32,7 @@
 
 <p>CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPods的<a href="https://github.com/CocoaPods/CocoaPods">项目源码</a>在Github上管理。该项目开始于2011年8月12日，在这两年多的时间里，它持续保持活跃更新。开发iOS项目不可避免地要使用第三方开源库，CocoaPods的出现使得我们可以节省设置和更新第三方开源库的时间</p>
 
-<p>在我们有了CocoaPods这个工具之后，只需要将用到的第三方开源库放到一个名为Podfile的文件中，然后在命令行执行<code>pod install</code>命令。CocoaPods就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数</p>
+<p>在我们有了CocoaPods这个工具之后，只需要将用到的第三方开源库放到一个名为Podfile的文件中，然后在命令行执行<code>$ pod install</code>命令。CocoaPods就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数</p>
 
 <h3>CocoaPods的安装及使用</h3>
 
@@ -40,7 +40,7 @@
 
 <p>安装的方式非常简单，Mac下已经自带了ruby，只要使用ruby的gem命令就可以安装了。打开的Mac的终端，在终端运行下面的命令：</p>
 
-<p><code>c++
+<p><code>
 $ [sudo] gem install cocoapods
 $ pod setup
 </code>
@@ -63,7 +63,7 @@ $ [sudo] gem update cocoapods --pre
 
 <p>如果我们不知道cocoaPods管理的库中，是否有你想要的库，那么你可以通过<code>$ pod search xxx</code>命令进行查找，以下是我用<code>$ pod search sdwebimage</code>查找到的所有可用的库：</p>
 
-<p>```c++
+<p>```
 &ndash;> SDWebImage (3.5.1)
    Asynchronous image downloader with cache support with an UIImageView
    category.
