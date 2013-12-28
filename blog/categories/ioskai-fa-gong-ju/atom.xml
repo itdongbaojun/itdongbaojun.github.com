@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: iOS开发工具 | 董宝君的iOS技术博客]]></title>
+  <link href="http://itdongbaojun.github.io/blog/categories/ioskai-fa-gong-ju/atom.xml" rel="self"/>
+  <link href="http://itdongbaojun.github.io/"/>
+  <updated>2013-12-28T17:49:23+08:00</updated>
+  <id>http://itdongbaojun.github.io/</id>
+  <author>
+    <name><![CDATA[董宝君]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[使用CocoaPods来管理iOS项目的依赖库]]></title>
+    <link href="http://itdongbaojun.github.io/blog/2013/12/28/shi-yong-cocoapodslai-guan-li-iosxiang-mu-de-yi-lai-ku/"/>
+    <updated>2013-12-28T17:17:25+08:00</updated>
+    <id>http://itdongbaojun.github.io/blog/2013/12/28/shi-yong-cocoapodslai-guan-li-iosxiang-mu-de-yi-lai-ku</id>
+    <content type="html"><![CDATA[<p><img src="/images/blogImgs/cocoapods-logo.png" alt="CocoaPods Logo" /></p>
+]]></content>
+  </entry>
+  
+</feed>
