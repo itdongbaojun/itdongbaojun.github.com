@@ -19,7 +19,7 @@ categories: iOS开发工具
 
 CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPods的[项目源码](https://github.com/CocoaPods/CocoaPods)在Github上管理。该项目开始于2011年8月12日，在这两年多的时间里，它持续保持活跃更新。开发iOS项目不可避免地要使用第三方开源库，CocoaPods的出现使得我们可以节省设置和更新第三方开源库的时间 
 
-在我们有了CocoaPods这个工具之后，只需要将用到的第三方开源库放到一个名为Podfile的文件中，然后在命令行执行`pod install`命令。CocoaPods就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数     
+在我们有了CocoaPods这个工具之后，只需要将用到的第三方开源库放到一个名为Podfile的文件中，然后在命令行执行`$ pod install`命令。CocoaPods就会自动将这些第三方开源库的源码下载下来，并且为我的工程设置好相应的系统依赖和编译参数     
 
 ### CocoaPods的安装及使用
 
@@ -27,7 +27,7 @@ CocoaPods是一个负责管理iOS项目中第三方开源库的工具。CocoaPod
 
 安装的方式非常简单，Mac下已经自带了ruby，只要使用ruby的gem命令就可以安装了。打开的Mac的终端，在终端运行下面的命令： 
 
-```c++
+```
 $ [sudo] gem install cocoapods
 $ pod setup
 ``` 
@@ -49,7 +49,7 @@ $ [sudo] gem update cocoapods --pre
 
 如果我们不知道cocoaPods管理的库中，是否有你想要的库，那么你可以通过`$ pod search xxx`命令进行查找，以下是我用`$ pod search sdwebimage`查找到的所有可用的库： 
 
-```c++
+```
 -> SDWebImage (3.5.1)
    Asynchronous image downloader with cache support with an UIImageView
    category.
