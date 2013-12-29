@@ -109,7 +109,7 @@ Integrating client project
 
 有很多iOS大牛早已写了关于cocoaPods的相关教程，我个人又参考各大牛的博客写了一遍，只为能增加使用CocoaPods的熟练度。如有造成侵权行为，请联系本人
 
-### 参考资料 
+### 相关链接 
 
 [唐巧的技术博客](http://blog.devtang.com/blog/2012/12/02/use-cocoapod-to-manage-ios-lib-dependency/)
  
