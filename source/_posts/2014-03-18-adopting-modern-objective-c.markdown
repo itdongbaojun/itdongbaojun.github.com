@@ -17,19 +17,19 @@ Xcode提供了一个工具来帮助我们做出这些结构上的改变。但是
 在合适的场合使用`instancetype`代替`id`类型来提高你的Objective-C代码的类型安全。例如，看一下下面的代码：
 
 ```c++
+//.h
 @interface MyObject : NSObject
 + (instancetype)factoryMethodA;
 + (id)factoryMethodB;
 @end
-
+//.m
 @implementation MyObject
 + (instancetype)factoryMethodA { return [[[self class] alloc] init]; }
 + (id)factoryMethodB { return [[[self class] alloc] init]; }
 @end
-
+//调用
 void doSomething() {
     NSUInteger x, y;
- 
     x = [[MyObject factoryMethodA] count]; // Return type of +factoryMethodA is taken to be "MyObject *"
     y = [[MyObject factoryMethodB] count]; // Return type of +factoryMethodB is "id"
 }
