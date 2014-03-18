@@ -4,7 +4,7 @@
   <title><![CDATA[董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2014-03-18T13:57:24+08:00</updated>
+  <updated>2014-03-18T14:00:19+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[采用现代Objective-C]]></title>
+    <link href="http://itdongbaojun.github.io/blog/2014/03/18/cai-yong-xian-dai-objective-c/"/>
+    <updated>2014-03-18T14:00:10+08:00</updated>
+    <id>http://itdongbaojun.github.io/blog/2014/03/18/cai-yong-xian-dai-objective-c</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[使用CocoaPods来管理iOS项目的依赖库]]></title>
