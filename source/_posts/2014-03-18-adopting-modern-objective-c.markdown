@@ -3,7 +3,6 @@ layout: post
 title: "采用现代Objective-C"
 date: 2014-03-18 11:47:48 +0800
 comments: true
-published: true
 categories:iOS 
 ---
 ### 前言
