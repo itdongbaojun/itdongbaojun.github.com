@@ -144,9 +144,6 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<!--more-->
-
-
 <p>然而，类方法<code>+factoryMethodB</code>的返回值值类型为<code>id</code>类型，编译器就不会报关于<code>y</code>行的警告啦。因为一个<code>id</code>类型的对象可以是任何类，同时，一个叫做<code>-count</code>的方法总是存在于一些类的某个地方，因此，类方法<code>+factoryMethodB</code>的返回值来实现这个方法对于编译器来说是可能的。</p>
 
 <p>为了使<code>instancetype</code>类工厂方法能够拥有正确的子类化行为，确保我们在分配类时使用<code>[self class]</code>而不是直接使用类名。遵循这个约定以确保编译器能够正确的推断出子类的类型。例如：子类化上一个例子中的<code>MyObject</code>:</p>
