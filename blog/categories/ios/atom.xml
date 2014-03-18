@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | 董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2014-03-18T18:13:51+08:00</updated>
+  <updated>2014-03-18T23:01:39+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -12,6 +12,273 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[采用现代Objective-C]]></title>
+    <link href="http://itdongbaojun.github.io/blog/2014/03/18/cai-yong-xian-dai-objective-c/"/>
+    <updated>2014-03-18T14:00:10+08:00</updated>
+    <id>http://itdongbaojun.github.io/blog/2014/03/18/cai-yong-xian-dai-objective-c</id>
+    <content type="html"><![CDATA[<h3>前言</h3>
+
+<p>这些年以来，随着<em>Objective-C</em>语言的不断发展和进化。尽管这门语言的核心概念和实践都保持不变，但是这其中的一部分已经有了显著的提升和改变。为了让我们更加容易的写出正确的代码，现代<em>Objective-C</em>语言提升了类型安全、内存管理、性能以及一些其他的方面。因此，在我们现在的以及将来的项目中采用这些新的改变让我们的代码变得更加一致、更加可读、更加可维护。</p>
+
+<p><em>Xcode</em>提供了一个工具来帮助我们做出这些结构上的改变。但是在使用这个工具之前，我们需要知道<em>Xcode</em>对我们的代码做出了什么样改变，以及它为什么要做出这样的改变。这篇文章会突出介绍如何在我们的代码中采用一些最有效、最有用的现代<em>Objective-C</em>编程方法。</p>
+
+<h3>instancetype</h3>
+
+<p>使用关键字<code>instancetype</code>作为需要返回一个类(<em>或者这个类的子类</em>)实例的方法的返回值类型。这些方法包括<code>alloc</code>，<code>init</code>，以及类工厂方法。</p>
+
+<p>在合适的场合使用<code>instancetype</code>代替<code>id</code>类型来提高你的Objective-C代码的类型安全。例如，看一下下面的代码:</p>
+
+<p>```c++
+// .h
+@interface MyObject : NSObject
++ (instancetype)factoryMethodA;
++ (id)factoryMethodB;
+@end
+// .m
+@implementation MyObject
++ (instancetype)factoryMethodA { return [[[self class] alloc] init]; }
++ (id)factoryMethodB { return [[[self class] alloc] init]; }
+@end
+// 调用
+void doSomething() {</p>
+
+<pre><code>NSUInteger x, y;
+x = [[MyObject factoryMethodA] count]; // Return type of +factoryMethodA is taken to be "MyObject *"
+y = [[MyObject factoryMethodB] count]; // Return type of +factoryMethodB is "id"
+</code></pre>
+
+<p>}
+<code>``
+由于类方法</code>+factoryMethodA<code>的返回值类型是</code>instancetype<code>，这个类型的消息表现为</code>MyObject *<code>。由于</code>MyObject<code>没有</code>-count<code>方法，编译器报了一个关于</code>x`行的警告：</p>
+
+<p><code>
+main.m: ’MyObject’ may not respond to ‘count’
+</code></p>
+
+<!--more-->
+
+
+<p>然而，类方法<code>+factoryMethodB</code>的返回值值类型为<code>id</code>类型，编译器就不会报关于<code>y</code>行的警告啦。因为一个<code>id</code>类型的对象可以是任何类，同时，一个叫做<code>-count</code>的方法总是存在于一些类的某个地方，因此，类方法<code>+factoryMethodB</code>的返回值来实现这个方法对于编译器来说是可能的。</p>
+
+<p>为了使<code>instancetype</code>类工厂方法能够拥有正确的子类化行为，确保我们在分配类时使用<code>[self class]</code>而不是直接使用类名。遵循这个约定以确保编译器能够正确的推断出子类的类型。例如：子类化上一个例子中的<code>MyObject</code>:</p>
+
+<p>```
+@interface MyObjectSubclass : MyObject
+@end
+void doSomethingElse() {</p>
+
+<pre><code>    NSString *aString = [MyObjectSubclass factoryMethodA];
+</code></pre>
+
+<p>}
+```
+对于这段代码编译器给出了如下的警告：</p>
+
+<p><code>
+main.m: Incompatible pointer types initializing ’NSString *’ with an expression of type ’MyObjectSubclass *’
+</code>
+在这个例子中，<code>+factoryMethodA</code>消息发送后返回了一个<code>MyObjectSubclass</code>类型的对象，是消息接收者类型的对象。编译器因此会相应的认为<code>+factoryMethodA</code>方法的返回值应该是<code>MyObjectSubclass</code>的子类，而不是其工厂方法中声明的那个父类。</p>
+
+<h3>如何采用？</h3>
+
+<p>在你的代码中，用<code>instancetype</code>类型恰当的代替出现<code>id</code>返回值类型的地方。比较典型的就是<code>init</code>方法和类工厂方法。尽管编译器会自动的将以“alloc”，“init”，“new”开头的方法的返回值类型由<code>id</code>转为<code>instancetype</code>，但是却不会为其他的方法进行自动转换。Objective-C的约定是为所有的方法明确的使用<code>instancetype</code>返回值类型。</p>
+
+<p>请注意，你应该只是对于返回值类型用<code>instancetype</code>替换<code>id</code>，在其他处的代码是不可以的。与<code>id</code>类型不同的是，关键字<code>instancetype</code>只能用于方法声明中的返回值类型。</p>
+
+<p>例如：</p>
+
+<p><code>
+@interface MyObject
+- (id)myFactoryMethod;
+@end
+</code>
+应该转变成：</p>
+
+<p><code>
+@interface MyObject
+- (instancetype)myFactoryMethod;
+@end
+</code></p>
+
+<h3>Properties</h3>
+
+<p>Objective-C的<em>property</em>是使用<code>@property</code>语法声明的公有方法或者私有方法。</p>
+
+<p><code>
+@property (readonly, getter=isBlue) BOOL blue;
+</code>
+<code>Properties</code>捕获对象的状态。它能够表达出对象的内在的属性以及和其他对象之间的关系。<code>Properties</code>提供了一个安全、方便的方式与这些属性进行交互而不用自己写一组自定义的存取方法（尽管属性允许我们在需要的时候自定义<code>getters</code>和<code>setters</code>）。</p>
+
+<p>在越来越多的场合下使用属性代替实例变量有以下的益处：</p>
+
+<ul>
+<li><strong>自动合成<code>getters</code>和<code>setters</code>。</strong>当你声明一个<code>property</code>，会默认自动为你创建<code>getter</code>和<code>setter</code>方法。</li>
+<li><strong>意图表达更加清楚的一组方法。</strong>由于存取方法的命名规范，能够非常准确的表达<code>getter</code>和<code>setter</code>方法正在做什么。</li>
+<li><strong><code>Property</code>关键字表达表达了一些关于行为的额外信息。</strong>属性为声明像<code>assign</code>(vs <code>copy</code>)，<code>weak</code>，<code>atomic</code>（vs <code>nonatomic</code>）等行为提供了可能。</li>
+</ul>
+
+
+<p>属性方法遵循一个简单的命名规范。<em>getter</em>方法名为属性的名字（例如：<code>date</code>），<em>setter</em>方法名位属性名带上<em>set</em>前缀，采用驼峰写法（例如：<code>setDate</code>）。布尔值属性的命名约定是的<em>getter</em>方法是以“is”开头的：</p>
+
+<p><code>
+@property (readonly, getter=isBlue) BOOL blue;
+</code>
+因此，下面的每一个方法都是能够工作的：</p>
+
+<p><code>
+if (color.blue) { }
+if (color.isBlue) { }
+if ([color isBlue]) { }
+</code>
+当想要决定什么可以是<code>property</code>时，一定要记住，下面的这些情况不能为属性：</p>
+
+<ul>
+<li><code>init</code>方法</li>
+<li><code>copy</code>方法，<code>mutableCopy</code>方法</li>
+<li>类工厂方法</li>
+<li>方法启动了一个操作，同时返回一个<code>Bool</code>值</li>
+<li>方法明确改变了内部状态作为一个getter的副作用。</li>
+</ul>
+
+
+<p>此外，在你的代码中识别潜在的属性时，需要考虑下面的这些原则：</p>
+
+<ul>
+<li>一个read/write property 拥有两个存取方法。setter方法拥有一个参数，无返回值，getter方法没有参数，有一个返回值。如果你想转变这组方法称为property，需要标注为<code>readwrite</code>关键字。</li>
+<li>一个read-only property只有一个存取方法，就是getter方法，无参数，有一个返回值。如果想要转变这个方法为property时，需要标注<code>readonly</code>关键字。</li>
+<li>getter方法应该是<em>idempotent</em>（如果getter方法被调用两次，第二次调用的结果和第一次调用的结果应该是相同的）。然而，对于getter方法是合理的去计算它每一次被调用的值。</li>
+</ul>
+
+
+<h3>如何采用？</h3>
+
+<p>识别出一组方法，使其有资格转化成一个property，比如：</p>
+
+<p><code>
+- (NSColor *)backgroundColor;
+- (void)setBackgroundColor:(NSColor *)color;
+</code>
+使用<code>@property</code>语法选择合理的关键字来声明成属性：</p>
+
+<p><code>
+@property (copy) NSColor *backgroundColor;
+</code></p>
+
+<h3>Enumeration Macros</h3>
+
+<p><code>NS_ENUM</code>和<code>NS_OPTIONS</code>宏提供了一个方便、简单的方式来定义基于<strong>C</strong>语言的枚举和选择。这些宏在Xcode中改善了代码实现，明确指定枚举、选择的类型以及大小。除此之外，这种声明枚举的方式可以很好的兼容旧的的编译器，新的声明方法可以解释基础类型的信息。</p>
+
+<p>使用<code>NS_ENUM</code>宏来定义<em>enumerations</em>，一组不同的值的集合：</p>
+
+<p>```
+typedef NS_ENUM(NSInteger, UITableViewCellStyle) {</p>
+
+<pre><code>    UITableViewCellStyleDefault,
+    UITableViewCellStyleValue1,
+    UITableViewCellStyleValue2,
+    UITableViewCellStyleSubtitle
+</code></pre>
+
+<p>};
+<code>``
+</code>NS_ENUM<code>宏帮助定义枚举的名字和类型，</code>UITableViewCellStyle<code>宏的类型为</code>NSInteger<code>。枚举的类型应该是</code>NSInteger`。</p>
+
+<p>使用<code>NS_OPTIONS</code>宏来定义<em>options</em>，一组结合在一起的位掩码：</p>
+
+<p>```
+typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {</p>
+
+<pre><code>    UIViewAutoresizingNone                 = 0,
+    UIViewAutoresizingFlexibleLeftMargin   = 1 &lt;&lt; 0,
+    UIViewAutoresizingFlexibleWidth        = 1 &lt;&lt; 1,
+    UIViewAutoresizingFlexibleRightMargin  = 1 &lt;&lt; 2,
+    UIViewAutoresizingFlexibleTopMargin    = 1 &lt;&lt; 3,
+    UIViewAutoresizingFlexibleHeight       = 1 &lt;&lt; 4,
+    UIViewAutoresizingFlexibleBottomMargin = 1 &lt;&lt; 5
+</code></pre>
+
+<p>};
+<code>``
+像枚举一样，</code>NS_OPTIONS<code>宏定义了名字和类型。然而，*options*的类型通常是</code>NSUInteger`。</p>
+
+<h3>如何采用？</h3>
+
+<p>替代你的<code>enum</code>声明，比如：</p>
+
+<p>```
+enum {</p>
+
+<pre><code>    UITableViewCellStyleDefault,
+    UITableViewCellStyleValue1,
+    UITableViewCellStyleValue2,
+    UITableViewCellStyleSubtitle
+</code></pre>
+
+<p>};
+typedef NSInteger UITableViewCellStyle;
+<code>``
+使用</code>NS_ENUM`语法：</p>
+
+<p>```
+typedef NS_ENUM(NSInteger, UITableViewCellStyle) {</p>
+
+<pre><code>    UITableViewCellStyleDefault,
+    UITableViewCellStyleValue1,
+    UITableViewCellStyleValue2,
+    UITableViewCellStyleSubtitle
+</code></pre>
+
+<p>};
+<code>``
+但是，当你使用</code>enum`来定义一个位掩码(bitmask)，比如：</p>
+
+<p>```
+enum {</p>
+
+<pre><code>    UIViewAutoresizingNone                 = 0,
+    UIViewAutoresizingFlexibleLeftMargin   = 1 &lt;&lt; 0,
+    UIViewAutoresizingFlexibleWidth        = 1 &lt;&lt; 1,
+    UIViewAutoresizingFlexibleRightMargin  = 1 &lt;&lt; 2,
+    UIViewAutoresizingFlexibleTopMargin    = 1 &lt;&lt; 3,
+    UIViewAutoresizingFlexibleHeight       = 1 &lt;&lt; 4,
+    UIViewAutoresizingFlexibleBottomMargin = 1 &lt;&lt; 5
+</code></pre>
+
+<p>};
+typedef NSUInteger UIViewAutoresizing;
+<code>``
+使用</code>NS_OPTIONS`宏：</p>
+
+<p>```
+typedef NS_OPTIONS(NSUInteger, UIViewAutoresizing) {</p>
+
+<pre><code>    UIViewAutoresizingNone                 = 0,
+    UIViewAutoresizingFlexibleLeftMargin   = 1 &lt;&lt; 0,
+    UIViewAutoresizingFlexibleWidth        = 1 &lt;&lt; 1,
+    UIViewAutoresizingFlexibleRightMargin  = 1 &lt;&lt; 2,
+    UIViewAutoresizingFlexibleTopMargin    = 1 &lt;&lt; 3,
+    UIViewAutoresizingFlexibleHeight       = 1 &lt;&lt; 4,
+    UIViewAutoresizingFlexibleBottomMargin = 1 &lt;&lt; 5
+</code></pre>
+
+<p>};
+```</p>
+
+<h3>自动引用计数（ARC）</h3>
+
+<p>自动引用引用计数（ARC）是编译器特性，为Objective-C对象提供内存管理，不再需要记住什么时候应该使用<code>retain</code>，<code>release</code>，和<code>autorelease</code>。ARC帮你管理对象的生存周期，在编译器帮你自动插入适当的内存管理代码，编译器也会在合适的时机帮你生成<code>dealloc</code>方法。</p>
+
+<h3>如何采用？</h3>
+
+<p>Xcode提供了ARC自动转换工具。选择ARC迁移工具：选择：<strong>Edit</strong> > <strong>Refactor</strong> > <strong>Convert to Objective-C ARC</strong>。更多信息请查看：<a href="https://developer.apple.com/library/ios/releasenotes/objectivec/rn-transitioningtoarc/introduction/introduction.html">Transitioning to ARC Release Notes</a></p>
+
+<h3>相关链接</h3>
+
+<p><a href="https://developer.apple.com/library/ios/releasenotes/ObjectiveC/ModernizationObjC/AdoptingModernObjective-C/AdoptingModernObjective-C.html?utm_campaign=iOS_Dev_Weekly_Issue_137&amp;utm_medium=email&amp;utm_source=iOS%2BDev%2BWeekly#//apple_ref/doc/uid/TP40014150">Adopting Modern Objective-C</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[起点iOS技术博客]]></title>

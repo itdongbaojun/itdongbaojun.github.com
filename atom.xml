@@ -4,7 +4,7 @@
   <title><![CDATA[董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2014-03-18T18:13:51+08:00</updated>
+  <updated>2014-03-18T23:01:39+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -70,6 +70,9 @@
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="n">main</span><span class="p">.</span><span class="nl">m:</span> <span class="err">’</span><span class="n">MyObject</span><span class="err">’</span> <span class="n">may</span> <span class="n">not</span> <span class="n">respond</span> <span class="n">to</span> <span class="err">‘</span><span class="n">count</span><span class="err">’</span>
 </span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
 
 
 <p>然而，类方法<code>+factoryMethodB</code>的返回值值类型为<code>id</code>类型，编译器就不会报关于<code>y</code>行的警告啦。因为一个<code>id</code>类型的对象可以是任何类，同时，一个叫做<code>-count</code>的方法总是存在于一些类的某个地方，因此，类方法<code>+factoryMethodB</code>的返回值来实现这个方法对于编译器来说是可能的。</p>
