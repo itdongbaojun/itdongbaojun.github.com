@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | 董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2014-11-23T23:29:23+08:00</updated>
+  <updated>2014-11-23T23:34:47+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -22,7 +22,7 @@
 
 <p>这些年以来，随着<em>Objective-C</em>语言的不断发展和进化。尽管这门语言的核心概念和实践都保持不变，但是这其中的一部分已经有了显著的提升和改变。为了让我们更加容易的写出正确的代码，现代<em>Objective-C</em>语言提升了类型安全、内存管理、性能以及一些其他的方面。因此，在我们现在的以及将来的项目中采用这些新的改变让我们的代码变得更加一致、更加可读、更加可维护。</p>
 
-<p><em>Xcode</em>提供了一个工具来帮助我们做出这些结构上的改变。但是在使用这个工具之前，我们需要知道<em>Xcode</em>对我们的代码做出了什么样改变，以及它为什么要做出这样的改变。这篇文章会突出介绍如何在我们的代码中采用一些最有效、最有用的现代<em>Objective-C</em>编程方法。</p>
+<p><em>Xcode</em>提供了一个工具来帮助我们做出这些结构上的改变。但是在使用这个工具之前，我们需要知道<em>Xcode</em>对我们的代码做出了什么样改变，以及它为什么要做出这样的改变。这篇文章会突出介绍如何在我们的代码中采用一些最有效、最有用的现代<em>Objective-C</em>编程方法。<!-- more --></p>
 
 <h3>instancetype</h3>
 

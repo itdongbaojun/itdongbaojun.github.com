@@ -4,7 +4,7 @@
   <title><![CDATA[董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2014-11-23T23:29:23+08:00</updated>
+  <updated>2014-11-23T23:34:47+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -20,11 +20,11 @@
     <id>http://itdongbaojun.github.io/blog/2014/11/23/li-yong-octopressxie-blogde-chang-yong-ming-ling</id>
     <content type="html"><![CDATA[<h3>前言</h3>
 
-<p>关于介绍如何搭建基于github的博客的优秀文章有很多，如果你想从零开始搭建一个基于github的博客系统，你可以看一下<code>唐巧</code>这篇Blog<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">象写程序一样写博客：搭建基于github的博客</a>，介绍的很详细、很清楚。今天在这里只是简单的记录一下搭建博客系统成功后发布博客的简单的流程。<!-- more --></p>
+<p>关于介绍如何搭建基于github的博客的优秀文章有很多，如果你想从零开始搭建一个基于github的博客系统，你可以看一下<code>唐巧</code>这篇Blog<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">象写程序一样写博客：搭建基于github的博客</a>，介绍的很详细、很清楚。今天在这里只是简单的记录一下搭建博客系统成功后发布博客的简单的流程。</p>
 
 <h3>创建</h3>
 
-<p>Octopress为我们提供了一些task来创建博文和页面。博文必须存储在<code>source/_posts</code>目录下，并且需要按照Jekyll的命名规范对文章进行命名：<code>YYYY-MM-DD-post-title.markdown</code>。文章的名字会被当做url的一部分，而其中的日期用于对博文的区分和排序。</p>
+<p>Octopress为我们提供了一些task来创建博文和页面。博文必须存储在<code>source/_posts</code>目录下，并且需要按照Jekyll的命名规范对文章进行命名：<code>YYYY-MM-DD-post-title.markdown</code>。文章的名字会被当做url的一部分，而其中的日期用于对博文的区分和排序。<!-- more --></p>
 
 <p>通过Octopress提供的task可以正确的按照命名规范创建一个博文，并且在博文中会附带常用的一些yaml元数据。命令如下：</p>
 
@@ -109,7 +109,7 @@
 
 <p>这些年以来，随着<em>Objective-C</em>语言的不断发展和进化。尽管这门语言的核心概念和实践都保持不变，但是这其中的一部分已经有了显著的提升和改变。为了让我们更加容易的写出正确的代码，现代<em>Objective-C</em>语言提升了类型安全、内存管理、性能以及一些其他的方面。因此，在我们现在的以及将来的项目中采用这些新的改变让我们的代码变得更加一致、更加可读、更加可维护。</p>
 
-<p><em>Xcode</em>提供了一个工具来帮助我们做出这些结构上的改变。但是在使用这个工具之前，我们需要知道<em>Xcode</em>对我们的代码做出了什么样改变，以及它为什么要做出这样的改变。这篇文章会突出介绍如何在我们的代码中采用一些最有效、最有用的现代<em>Objective-C</em>编程方法。</p>
+<p><em>Xcode</em>提供了一个工具来帮助我们做出这些结构上的改变。但是在使用这个工具之前，我们需要知道<em>Xcode</em>对我们的代码做出了什么样改变，以及它为什么要做出这样的改变。这篇文章会突出介绍如何在我们的代码中采用一些最有效、最有用的现代<em>Objective-C</em>编程方法。<!-- more --></p>
 
 <h3>instancetype</h3>
 
@@ -448,7 +448,7 @@
 
 <p>细细算来，我接触iOS已经有<em>1.5f</em>年的时间了，虽然其中有差不多一年的时间是在大四经历<em>自学和实习</em>的这个阶段。抛去那段时间不算，毕业后在现在的公司工作差不多半年了&hellip;</p>
 
-<p>在经历过的几个项目上基本上每一个都会用到第三方开源库，比如<code>SDWebImage</code>、<code>AFNetworking</code>、<code>MBProgressHUD</code>等。然而，每次把这些第三方库导入到我们的项目中要配置一些选项以及添加第三方库本身依赖的系统框架，这个工作是重复的而且非常没有技术含量。有没有什么工具能替代我们做这些工作呢？</p>
+<p>在经历过的几个项目上基本上每一个都会用到第三方开源库，比如<code>SDWebImage</code>、<code>AFNetworking</code>、<code>MBProgressHUD</code>等。然而，每次把这些第三方库导入到我们的项目中要配置一些选项以及添加第三方库本身依赖的系统框架，这个工作是重复的而且非常没有技术含量。有没有什么工具能替代我们做这些工作呢？ <!-- more --></p>
 
 <p>一直到最近几天才知道，业界早已有了为iOS项目提供依赖管理的工具(<em>我深深的感觉到我还没入行就先落伍了</em>)，这个工具就是：<a href="http://beta.cocoapods.org">CocoaPods</a>。</p>
 
