@@ -4,7 +4,7 @@
   <title><![CDATA[董宝君的iOS技术博客]]></title>
   <link href="http://itdongbaojun.github.io/atom.xml" rel="self"/>
   <link href="http://itdongbaojun.github.io/"/>
-  <updated>2014-11-23T21:37:50+08:00</updated>
+  <updated>2014-11-23T23:29:23+08:00</updated>
   <id>http://itdongbaojun.github.io/</id>
   <author>
     <name><![CDATA[董宝君]]></name>
@@ -12,6 +12,93 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[利用Octopress写Blog的常用命令]]></title>
+    <link href="http://itdongbaojun.github.io/blog/2014/11/23/li-yong-octopressxie-blogde-chang-yong-ming-ling/"/>
+    <updated>2014-11-23T22:01:10+08:00</updated>
+    <id>http://itdongbaojun.github.io/blog/2014/11/23/li-yong-octopressxie-blogde-chang-yong-ming-ling</id>
+    <content type="html"><![CDATA[<h3>前言</h3>
+
+<p>关于介绍如何搭建基于github的博客的优秀文章有很多，如果你想从零开始搭建一个基于github的博客系统，你可以看一下<code>唐巧</code>这篇Blog<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">象写程序一样写博客：搭建基于github的博客</a>，介绍的很详细、很清楚。今天在这里只是简单的记录一下搭建博客系统成功后发布博客的简单的流程。<!-- more --></p>
+
+<h3>创建</h3>
+
+<p>Octopress为我们提供了一些task来创建博文和页面。博文必须存储在<code>source/_posts</code>目录下，并且需要按照Jekyll的命名规范对文章进行命名：<code>YYYY-MM-DD-post-title.markdown</code>。文章的名字会被当做url的一部分，而其中的日期用于对博文的区分和排序。</p>
+
+<p>通过Octopress提供的task可以正确的按照命名规范创建一个博文，并且在博文中会附带常用的一些yaml元数据。命令如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="n">new_post</span><span class="p">[</span><span class="s">&quot;title&quot;</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其中title为博文的文件名，创建出来的文件默认是markdown格式。这个文件在<code>source/_posts/xxx</code>路径下，打开文件可以看到如下的内容:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="o">---</span>
+</span><span class='line'><span class="nl">layout:</span> <span class="n">post</span>
+</span><span class='line'><span class="nl">title:</span> <span class="s">&quot;title&quot;</span>
+</span><span class='line'><span class="nl">date:</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">23</span> <span class="mi">22</span><span class="o">:</span><span class="mo">01</span><span class="o">:</span><span class="mi">10</span> <span class="o">+</span><span class="mi">0800</span>
+</span><span class='line'><span class="nl">comments:</span> <span class="kc">true</span>
+</span><span class='line'><span class="nl">categories:</span>
+</span><span class='line'><span class="o">---</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>内容</h3>
+
+<p>接下来就可以在上面生成的那个文件中写博客啦！这里有一点需要说明的就是，你可以在文章合适的地方插入<code>&lt;!-- more --&gt;</code>，这样就可以实现在文章的预览首页不显示全部内容，会有一个“Continue →”按钮来查查看整篇文章。</p>
+
+<h3>生成和预览</h3>
+
+<p>可以使用下面的命令生成静态文件</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="n">generate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以使用下面的命令检测文件变化，实时生成新内容</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="n">watch</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以使用下面的命令生成在本机4000端口访问的内容</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="n">preview</span>     <span class="err">#</span> <span class="err">访问</span><span class="nl">http:</span><span class="c1">//localhost:4000就可以</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>发布</h3>
+
+<p>当你把文章内容写好了，同时本地预览效果也没有问题了，这个时候就可以发布文章了，如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="err">$</span> <span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+</span><span class='line'><span class="err">$</span> <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">am</span> <span class="s">&quot;Some comment here.&quot;</span>
+</span><span class='line'><span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">source</span>
+</span><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="n">deploy</span>              <span class="err">#发布</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>总结</h3>
+
+<p>是不是很简单，这样就搞定了，哈哈!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[采用现代Objective-C]]></title>
