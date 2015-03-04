@@ -6,10 +6,10 @@ comments: true
 categories: 写作工具
 ---
 ### 前言
-关于介绍如何搭建基于github的博客的优秀文章有很多，如果你想从零开始搭建一个基于github的博客系统，你可以看一下`唐巧`这篇Blog[象写程序一样写博客：搭建基于github的博客](http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/)，介绍的很详细、很清楚。今天在这里只是简单的记录一下搭建博客系统成功后发布博客的简单的流程。<!-- more -->
+关于介绍如何搭建基于github的博客的优秀文章有很多，如果你想从零开始搭建一个基于github的博客系统，你可以看一下`唐巧`这篇Blog[象写程序一样写博客：搭建基于github的博客](http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/)，介绍的很详细、很清楚。今天在这里只是简单的记录一下搭建博客系统成功后发布博客的简单的流程。
 
 ### 创建
-Octopress为我们提供了一些task来创建博文和页面。博文必须存储在`source/_posts`目录下，并且需要按照Jekyll的命名规范对文章进行命名：`YYYY-MM-DD-post-title.markdown`。文章的名字会被当做url的一部分，而其中的日期用于对博文的区分和排序。
+Octopress为我们提供了一些task来创建博文和页面。博文必须存储在`source/_posts`目录下，并且需要按照Jekyll的命名规范对文章进行命名：`YYYY-MM-DD-post-title.markdown`。文章的名字会被当做url的一部分，而其中的日期用于对博文的区分和排序。<!-- more -->
 
 通过Octopress提供的task可以正确的按照命名规范创建一个博文，并且在博文中会附带常用的一些yaml元数据。命令如下：
 
